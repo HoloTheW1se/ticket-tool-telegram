@@ -1,0 +1,5 @@
+peewee==3.15.4
+requests==2.31.0
+python-dotenv==1.0.0
+pydantic==2.5.3
+pyTelegramBotAPI==4.14.1
