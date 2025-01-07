@@ -34,3 +34,4 @@ class Ticket(Base_model):
     id = pw.AutoField()
     user = pw.ForeignKeyField(User, backref="user_ticket")
     chat_id = pw.TextField()
+    ticket_id = pw.TextField()

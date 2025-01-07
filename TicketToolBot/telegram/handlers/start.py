@@ -29,7 +29,8 @@ def handle_start(message: Message) -> None:
             topic_name = f"{user_id}-{datetime.now()}"
             result = create_forum_topic(token=tg_settings.bot_token.get_secret_value(), chat_id=tg_settings.forum_id.get_secret_value(), name=topic_name)
             topic_id = result["message_thread_id"]
-            Ticket.create(user=user, chat_id=topic_id)
+            chat_id = message.chat.id
+            Ticket.create(user=user, ticket_id=topic_id, chat_id=chat_id)
 
         bot.reply_to(message, f"Добро пожаловать, {first_name}!\n"
                               f"Заполните форму, чтобы администрация могла помочь вам!\n"

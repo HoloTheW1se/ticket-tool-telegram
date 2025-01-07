@@ -21,5 +21,4 @@ class Tg_settings(BaseSettings):
 # Стандартные команды для предложения пользователю
 default_commands = (
     ("start", "Запустить бота"),
-    ("help", "Вывести справку"),
 )
