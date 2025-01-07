@@ -6,6 +6,9 @@ db = pw.SqliteDatabase(db_path)
 
 
 class Base_model(pw.Model):
+    """
+    Базовая модель для привязки к базе данных и отслеживания времени создания объекта
+    """
     created_at = pw.DateTimeField(default=datetime.now())
 
     class Meta:
@@ -13,6 +16,9 @@ class Base_model(pw.Model):
 
 
 class User(Base_model):
+    """
+    Модель пользователя
+    """
     user_id = pw.IntegerField(primary_key=True)
     username = pw.CharField()
     first_name = pw.CharField()
@@ -20,6 +26,11 @@ class User(Base_model):
 
 
 class Ticket(Base_model):
+    """
+    Модель тикета
+    :param: user - внешний ключ на пользователя
+    :param: chat_id - айди темы для пересылки сообщений
+    """
     id = pw.AutoField()
     user = pw.ForeignKeyField(User, backref="user_ticket")
     chat_id = pw.TextField()
