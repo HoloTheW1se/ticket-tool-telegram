@@ -5,4 +5,3 @@ from . import audio_handler
 from . import document_handler
 from . import photo_handler
 from . import video_handler
-# from . import media_group_handler
