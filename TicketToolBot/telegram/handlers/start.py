@@ -22,11 +22,11 @@ def handle_start(message: Message) -> None:
     user_id = message.from_user.id
     username = message.from_user.username
     first_name = message.from_user.first_name
-    last_name = message.from_user.last_name
+    last_name = message.from_user.last_name if message.from_user.last_name else ""
     try:
         with db:
             user = User.create(user_id=user_id, username=username, first_name=first_name, last_name=last_name)
-            topic_name = f"{user_id}-{datetime.now()}"
+            topic_name = f"{username}-{first_name} {last_name}"
             result = create_forum_topic(token=tg_settings.bot_token.get_secret_value(), chat_id=tg_settings.forum_id.get_secret_value(), name=topic_name)
             topic_id = result["message_thread_id"]
             chat_id = message.chat.id

@@ -27,4 +27,5 @@ def handle_answer(message: Message) -> None:
     response_message = f"{admin_name}: {text}"
 
     bot.send_message(chat_id, response_message)
+    bot.reply_to(message, "Сообщение отправлено!")
     return

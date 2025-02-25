@@ -27,4 +27,5 @@ def handle_user_message(message: Message) -> None:
     user_name = f"{first_name} {last_name}" if last_name else f"{first_name}"
     response_message = f"{user_name}: {text}"
     bot.send_message(chat.id, response_message, message_thread_id=ticket.ticket_id)
+    bot.reply_to(message, "Сообщение отправлено!")
     return
